@@ -35,6 +35,6 @@ To install the package follow the steps outlined below. You can install StataEdi
 
 5. Finally, to use Stata interactively from ST3, you also need to register the Stata Automation type library. Instructions can be found [here](http://www.stata.com/automation/#createmsapp). Note that I have had to use the Windows Vista instructions for Windows 7 to get Stata Automation to work. Once the Stata Automation type library has been registered, you are good to go!
 
-Diclaimer
+Disclaimer
 ---------
 The development of this package is still in beta and may contain bugs, so use at your own risk and make sure you backup your data. Please let me know if something is broken or if you have requests for additional featuers. You can contact me at mnordin [at] gmx [dot] com.
