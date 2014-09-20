@@ -1,0 +1,13 @@
+<snippet>
+	<content><![CDATA[
+capture program drop ${1:Name}
+program define ${1:Name}
+
+	$0
+
+end
+]]></content>
+	<tabTrigger>prog</tabTrigger>
+	<scope>source.stata</scope>scope>
+	<description>Program</description>description
+</snippet>

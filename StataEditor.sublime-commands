@@ -1,0 +1,28 @@
+[
+    {
+        "caption": "Stata: Do do-file",
+        "command": "stata_execute",
+        "args": {"Mode": "do"}
+    },
+    {
+    	"caption": "Stata: Run do-file",
+    	"command": "stata_execute",
+        "args": {"Mode": "run"}
+    },
+    {
+    	"caption": "Stata: Insert locals",
+    	"command": "stata_local"
+    },
+    {
+        "caption": "Stata: Help (external)",
+        "command": "stata_help_external"
+    },
+    {
+        "caption": "Stata: Help (internal)",
+        "command": "stata_help_internal"
+    },
+    {
+        "caption": "Stata: Load Stata dataset",
+        "command": "stata_load"
+    }
+]

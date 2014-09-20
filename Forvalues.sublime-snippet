@@ -1,0 +1,12 @@
+<snippet>
+	<content><![CDATA[
+forvalues i=${1:1} (${2:1}) ${3:n} {
+
+	$0
+
+}
+]]></content>
+	<tabTrigger>forv</tabTrigger>
+	<scope>source.stata</scope>scope>
+	<description>Forvalues</description>description
+</snippet>

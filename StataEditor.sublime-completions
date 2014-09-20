@@ -1,0 +1,14 @@
+{
+	"scope": "source.stata",
+
+	"completions":
+	[
+		"stata",
+
+		{ "trigger": "sav", "contents": "save \"${1:file}.dta\", replace" },
+		{ "trigger": "use", "contents": "use \"${1:file}.dta\", clear" },
+		{ "trigger": "run", "contents": "run \"${1:file}.do\""},
+		{ "trigger": "do", "contents": "do \"${1:file}.do\""},
+		{ "trigger": "mer", "contents": "merge ${1:1}:${2:1} ${3:variables} using \"${4:file}.dta\""}
+	]
+}
