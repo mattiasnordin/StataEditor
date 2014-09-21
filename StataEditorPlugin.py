@@ -31,18 +31,14 @@ def plugin_loaded():
 # 	else:
 # 		return False
 
-# def StataAutomate(stata_command):
-# 	""" Launch Stata (if needed) and send commands """
-# 	if StataRunning():
-# 		try:
-# 			sublime.stata.DoCommandAsync(stata_command)
-# 		except:
-# 			sublime.stata = win32com.client.Dispatch ("stata.StataOLEApp")
-# 			sublime.stata.DoCommandAsync(stata_command)
-# 	else:
-# 		win32api.WinExec(settings.get("stata_path"))
-# 		sublime.stata = win32com.client.Dispatch ("stata.StataOLEApp")
-# 		sublime.stata.DoCommandAsync(stata_command)
+def StataAutomate(stata_command):
+	""" Launch Stata (if needed) and send commands """
+	try:
+		sublime.stata.DoCommandAsync(stata_command)
+	except:
+		win32api.WinExec(settings.get("stata_path"))
+		sublime.stata = win32com.client.Dispatch ("stata.StataOLEApp")
+		sublime.stata.DoCommandAsync(stata_command)
 
 class StataExecuteCommand(sublime_plugin.TextCommand):
 	def run(self, edit, **args):
@@ -71,14 +67,7 @@ class StataExecuteCommand(sublime_plugin.TextCommand):
 		this_file.write(all_text)
 		this_file.close()
 		
-		stata_command = str(args["Mode"]) + " " + dofile_path
-
-		try:
-			sublime.stata.DoCommandAsync(stata_command)
-		except:
-			win32api.WinExec(settings.get("stata_path"))
-			sublime.stata = win32com.client.Dispatch ("stata.StataOLEApp")
-			sublime.stata.DoCommandAsync(stata_command)
+		StataAutomate(str(args["Mode"]) + " " + dofile_path)
 
 class StataHelpExternal(sublime_plugin.TextCommand):
 	def run(self,edit):

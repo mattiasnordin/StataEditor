@@ -1,0 +1,9 @@
+Thanks for installing StataEditor for Sublime Text 3!
+
+To use this package, you need to install the Pywin32 package which is available from Package Control.
+
+You also need to provide the path to your Stata installation. To do so, go to Preferences -> Settings - More -> Syntax Specific - User. Paste {"stata_path": "C:/Program Files (x86)/Stata13/StataMP-64.exe"} in the file, change the directory to the path of your Stata installation (note that you need to use forward slash, "/", instead of backward slash, "\") and save the file. 
+
+You also need to register the Stata Automation type library. Instructions can be found  at http://www.stata.com/automation/#createmsapp. You may have to use the instructions for Windows Vista even if you do not use Vista as your operating system. 
+
+For additional information on setup and features, see the Readme file.
