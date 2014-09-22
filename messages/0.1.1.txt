@@ -1,4 +1,4 @@
-Changes:
+Changes in version 0.1.1:
 
 	*Fixed a bug where Stata did not load a new dataset when pressing ctrl + shift + u
 	*Minor update to the readme file and introduced messaging
