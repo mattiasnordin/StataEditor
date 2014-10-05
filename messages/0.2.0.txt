@@ -1,0 +1,4 @@
+Changes in version 0.2.0:
+
+	*Added settings menu for StataEditor available from Preferences -> Package Settings -> StataEditor
+	*Minor update to the readme file and the installation message
