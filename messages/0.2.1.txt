@@ -1,0 +1,3 @@
+Changes in version 0.2.1:
+
+	*Changed package default settings to ensure .do and .ado files end with a newline when saved
