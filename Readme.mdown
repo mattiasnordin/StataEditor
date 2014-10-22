@@ -45,4 +45,4 @@ If you write Stata code containing non-ASCII characters in ST3, you may notice t
 
 Acknowledgments
 ---------------
-Thanks to Sergio Correia for providing additional key bindings.
+Thanks to Adrian Adermon and Daniel Forchheimer for helpful suggestions and to Sergio Correia for providing additional key bindings.
