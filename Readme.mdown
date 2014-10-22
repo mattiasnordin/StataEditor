@@ -3,8 +3,8 @@ Stata Editor for Sublime Text 3
 
 by [Mattias Nordin](http://sites.google.com/site/econnordin/)
 
-* Version 0.2.1
-* Date: October 14, 2014
+* Version 0.3.0
+* Date: October 22, 2014
 
 Features
 --------
@@ -35,10 +35,14 @@ To install the package follow the steps outlined below. You can install StataEdi
 
 5. Finally, to use Stata interactively from ST3, you also need to register the Stata Automation type library. Instructions can be found [here](http://www.stata.com/automation/#createmsapp). Note that I have had to use the Windows Vista instructions for Windows 7 to get Stata Automation to work. Once the Stata Automation type library has been registered, you are good to go!
 
+Known issues
+------------
+The development of this package is still in beta and may contain bugs, so use at your own risk and make sure you backup your data. When running code from ST3, a new instance of Stata is opened. If you close ST3, then that instance will also close, though it may take around five minutes before that happens. Note that Stata will not ask you whether you want to save the data but will close without warning. **Therefore, do not use an instance of Stata that has been launched from ST3 after ST3 has been closed, as you would risk loosing your unsaved work.** This is true even if you re-launch ST3 as the connection to the old instance of Stata will have been permanently broken. Please let me know if you detect any other bugs or if you have requests for additional featuers. You can contact me at mnordin [at] gmx [dot] com.
+
 Encoding
 --------
 If you write Stata code containing non-ASCII characters in ST3, you may notice that these characters have been replaced with nonsense when you open the file in Stata's native do-file editor. This is because Stata and ST3 use different encodings. To avoid this issue, you can save your file with a different encoding in ST3. To do so, open File -> Save with encoding, and choose the appropriate encoding. Which encoding is right for you I would imagine depends on your Stata distribution. For most users in Europe and the U.S. you would probably get the correct result by choosing Western (Windows 1252). If that doesn't work, try saving with other encodings.
 
-Disclaimer
----------
-The development of this package is still in beta and may contain bugs, so use at your own risk and make sure you backup your data. Please let me know if something is broken or if you have requests for additional featuers. You can contact me at mnordin [at] gmx [dot] com.
+Acknowledgments
+---------------
+Thanks to Sergio Correia for providing additional key bindings.

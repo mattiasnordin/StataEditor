@@ -1,0 +1,5 @@
+Changes in version 0.3.0:
+
+	*Added additional key bindings are provided
+	*Minor snippet changes
+	*Update of the readme file
