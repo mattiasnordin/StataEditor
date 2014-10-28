@@ -1,4 +1,29 @@
 {
+	/* With this setting, an extra line is added when the file is saved (just as in Stata's own do-file editor).
+	Without an extra line, the last line of code will not be run in Stata. However, when running
+	code directly from the active window in Sublime Text, the last line will always be included,
+	even when the file is not saved at all, and regardless of this setting. */
+
 	"ensure_newline_at_eof_on_save": true,
-	"stata_path": "C:/Program Files (x86)/Stata13/StataMP-64.exe"
+
+	/* This is the path where Sublime Text will be looking for Stata to launch. For this package to work properly,
+	this path must correspond to where your Stata distribution is installed. To change the path, go to
+	Preferences -> Package Settings -> StataEditor -> Settings - User, copy this line of code, change the path and save. */
+
+	"stata_path": "C:/Program Files (x86)/Stata13/StataMP-64.exe",
+
+	/* With this setting, all variables in the active Stata connection is available in the completion
+	dropdown menu. Change the setting to false to turn it off. */
+
+	"variable_completions": true,
+
+	/* With this setting, Stata functions are available in the completion dropdown menu.
+	Change the setting to true to turn it on. */
+
+	"function_completions": false,
+
+	/* With this setting, Stata commands are available in the completion dropdown menu.
+	Change the setting to true to turn it on. */
+
+	"command_completions": false
 }

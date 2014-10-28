@@ -15,22 +15,6 @@ def plugin_loaded():
     global settings
     settings = sublime.load_settings(settings_file)
 
-# def StataRunning():
-# 	""" Check if Stata is running """
-# 	cmd = "WMIC PROCESS get Caption"
-# 	proc = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)
-
-# 	all_run_prog = ""
-# 	for line in proc.stdout:
-# 		all_run_prog = all_run_prog + str(line) + "\n"
-
-# 	prog_run = re.findall('Stata.*?\.exe', all_run_prog)
-
-# 	if len(prog_run) > 0:
-# 		return True
-# 	else:
-# 		return False
-
 def StataAutomate(stata_command):
 	""" Launch Stata (if needed) and send commands """
 	try:
