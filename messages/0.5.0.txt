@@ -1,0 +1,6 @@
+Changes in version 0.5.0:
+
+	*Added support for Stata 14. The default version is still Stata 13. Change version number in the Settings - User file. When executing a do-file, the code is utf-8-encoded when using Stata 14 and Western (Windows-1252)-encoded for Stata 13 and earlier.
+	*Key bindings have changed. Go to Package Settings -> StataEditor -> Key Bindings (Default) to see the new changes.
+	*The readme file has been updated.
+

@@ -12,6 +12,11 @@
 
 	"stata_path": "C:/Program Files (x86)/Stata13/StataMP-64.exe",
 
+	/* Current Stata version. This makes sure Sublime Text is sending code with the correct encoding to Stata.
+	Windows-1252 is used for Stata 13 and earlier, while utf-8 is used for Stata 14. */
+
+	"stata_version": 13,
+
 	/* With this setting, all variables in the active Stata connection is available in the completion
 	dropdown menu. Change the setting to false to turn it off. */
 
