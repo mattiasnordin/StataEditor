@@ -17,6 +17,11 @@
 
 	"stata_version": 13,
 
+	/* This setting is only for versions 13 and older. Change to appropriate encoding if needed.
+	For example, if you use a Chinese version of Stata, change encoding to "gbk". */
+
+	"character_encoding": "windows-1252",
+
 	/* With this setting, all variables in the active Stata connection is available in the completion
 	dropdown menu. Change the setting to false to turn it off. */
 

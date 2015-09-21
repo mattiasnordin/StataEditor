@@ -1,0 +1,5 @@
+Changes in version 0.5.1:
+
+	*It is now possible to change character encoding (only necessary for Stata 13 and earlier since Stata 14 has unicode support). If you, for instance, have a Chinese version of Stata, you can go to Preferences -> Package Settings -> StataEditor -> Settings - User and paste {"character_encoding": "gbk"}. There are a number of different encodings that can be used. The following [link](https://docs.python.org/3/library/codecs.html#standard-encodings) provides a list of encodings.
+	*Made a minor change to syntax highlighting.
+	*The readme file has been updated.

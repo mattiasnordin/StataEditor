@@ -48,7 +48,7 @@ class StataExecuteCommand(sublime_plugin.TextCommand):
 		dofile_path = os.path.join(tempfile.gettempdir(), 'st_stata_temp.tmp')
 
 		if settings.get("stata_version") <= 13:
-			this_file = open(dofile_path,'w',encoding='windows-1252')
+			this_file = open(dofile_path,'w',encoding=settings.get("character_encoding"))
 
 		if settings.get("stata_version") >= 14:
 			this_file = open(dofile_path,'w',encoding='utf-8')

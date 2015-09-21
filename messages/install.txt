@@ -4,7 +4,7 @@ To use this package, you need to install the Pywin32 package which is available 
 
 You also need to provide the path to your Stata installation. To do so, go to Preferences -> Package Settings -> StataEditor -> Settings - Default. If the path in that file corresponds to the path to your Stata installation you do not need to do anything. Otherwise, copy the content of the file and go to Preferences -> Package Settings -> StataEditor -> Settings - User and paste your copied text in the new file. Then change the path to where your Stata installation is located (note that you need to use forward slash, "/", instead of backward slash, "\") and save the file. In addition, if you do not use Stata 13, change the Stata version number. Do not change the content of the Settings - Default file. While this will work temporarily, with the next update your changes will disappear. The content of the Settings - User file will not be overwritten when the package is updated.
 
-You also need to register the Stata Automation type library. Instructions can be found  at http://www.stata.com/automation/#createmsapp. You may have to use the instructions for Windows Vista even if you do not use Vista as your operating system. 
+You also need to register the Stata Automation type library. Instructions can be found at http://www.stata.com/automation/#createmsapp. You may have to use the instructions for Windows Vista even if you do not use Vista as your operating system. 
 
 For additional information on setup and features, see the Readme file.
 
