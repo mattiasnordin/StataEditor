@@ -1,0 +1,4 @@
+Changes in version 0.6.0:
+
+	*When launching Stata from Sublime Text, Stata's directory is set to the location of the do-file. If that fails, the directory is instead set to the location of the current project. If that also fails, the directory is not changed. The setting "default_path" changes this behavior. If "default_path" is set to "project_path", the directory is immediately set to the location of the current project. Alternatively, it is possible to set a custom path.
+	*Made a minor change to syntax highlighting.

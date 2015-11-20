@@ -19,11 +19,32 @@ def StataAutomate(stata_command):
 	""" Launch Stata (if needed) and send commands """
 	try:
 		sublime.stata.DoCommandAsync(stata_command)
+
 	except:
 		win32api.WinExec(settings.get("stata_path"))
 		sublime.stata = win32com.client.Dispatch ("stata.StataOLEApp")
+		sublime.stata.DoCommand("cd " + getDirectory())
 		sublime.stata.DoCommandAsync(stata_command)
 
+def getDirectory():
+	var_dict = sublime.active_window().extract_variables()
+	if settings.get("default_path") == "current_path":
+		try:
+			set_dir = "%(file_path)s" % var_dict
+		except:
+			try:
+				set_dir = "%(project_path)s" % var_dict
+			except:
+				set_dir = ""
+	elif settings.get("default_path") == "project_path" or settings.get("default_path") == "":
+		try:
+			set_dir = "%(project_path)s" % var_dict
+		except:
+			set_dir = ""
+	else:
+		set_dir = settings.get("default_path")
+	return set_dir
+	
 class StataExecuteCommand(sublime_plugin.TextCommand):
 	def run(self, edit, **args):
 		all_text = ""
@@ -55,8 +76,13 @@ class StataExecuteCommand(sublime_plugin.TextCommand):
 
 		this_file.write(all_text)
 		this_file.close()
-		
+
 		StataAutomate(str(args["Mode"]) + " " + dofile_path)
+
+# class StataBuildCommand(sublime_plugin.WindowCommand):
+# 	def run(self, **kwargs):
+# 		act_win = sublime.active_window().active_view()
+# 		act_win.window().run_command("stata_execute", {"build":True, "Mode": kwargs["mode_opt"]})
 
 class StataHelpExternal(sublime_plugin.TextCommand):
 	def run(self,edit):

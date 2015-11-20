@@ -35,5 +35,13 @@
 	/* With this setting, Stata commands are available in the completion dropdown menu.
 	Change the setting to true to turn it on. */
 
-	"command_completions": false
+	"command_completions": false,
+
+	/* Setting the directory in Stata when an initial connection to Stata is established.
+	The default ("current_path") is to set it to the path of where the current file is located.
+	Alternatively, setting the option to "project_path" sets the path where the active Sublime
+	project is located. Finally, it is possible to set a custom path (using forward slashes
+	instead of backslashes). */
+
+	"default_path": "current_path"
 }

@@ -43,9 +43,17 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>\`\`</string>
+			<string>\`.*\`.*\`</string>
 			<key>end</key>
-			<string>\'\'</string>
+			<string>\'.*\'.*\'</string>
+			<key>name</key>
+			<string>variable.parameter.stata</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>\`.*\`</string>
+			<key>end</key>
+			<string>\'.*\'</string>
 			<key>name</key>
 			<string>variable.parameter.stata</string>
 		</dict>
