@@ -31,18 +31,22 @@ def getDirectory():
 	if settings.get("default_path") == "current_path":
 		try:
 			set_dir = "%(file_path)s" % var_dict
+			set_dir = "\"" + set_dir + "\""
 		except:
 			try:
 				set_dir = "%(project_path)s" % var_dict
+				set_dir = "\"" + set_dir + "\""
 			except:
 				set_dir = ""
 	elif settings.get("default_path") == "project_path" or settings.get("default_path") == "":
 		try:
 			set_dir = "%(project_path)s" % var_dict
+			set_dir = "\"" + set_dir + "\""
 		except:
 			set_dir = ""
 	else:
 		set_dir = settings.get("default_path")
+		set_dir = "\"" + set_dir + "\""
 	return set_dir
 	
 class StataExecuteCommand(sublime_plugin.TextCommand):

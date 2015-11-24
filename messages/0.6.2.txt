@@ -1,0 +1,3 @@
+Changes in version 0.6.2:
+
+	*Fixed a bug so that the starting cd command works when there are spaces in the directory.
