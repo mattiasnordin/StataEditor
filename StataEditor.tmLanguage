@@ -27,33 +27,33 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>\`\"\`</string>
+			<string>\`\S*\"\S*\`</string>
 			<key>end</key>
-			<string>\'\"\'</string>
+			<string>\'\S*\"\S*\'</string>
 			<key>name</key>
 			<string>variable.parameter.stata</string>
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>\`\"</string>
+			<string>\`\S*\"</string>
 			<key>end</key>
-			<string>\"\'</string>
+			<string>\"\S*\'</string>
 			<key>name</key>
 			<string>variable.parameter.stata</string>
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>\`\w*\`\w*\`</string>
+			<string>\`\S*\`\S*\`</string>
 			<key>end</key>
-			<string>\'\w*\'\w*\'</string>
+			<string>\'\S*\'\S*\'</string>
 			<key>name</key>
 			<string>variable.parameter.stata</string>
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>\`\w*\`</string>
+			<string>\`\S*\`</string>
 			<key>end</key>
-			<string>\'\w*\'</string>
+			<string>\'\S*\'</string>
 			<key>name</key>
 			<string>variable.parameter.stata</string>
 		</dict>
@@ -87,7 +87,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(if|in|forvalues|foreach|by|bysort)\b</string>
+			<string>\b(if|in|forvalues|foreach|by|bysort|of)\b</string>
 			<key>name</key>
 			<string>keyword.control.stata</string>
 		</dict>
