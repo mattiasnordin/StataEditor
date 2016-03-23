@@ -9,7 +9,25 @@ import re
 import urllib
 from urllib import request
 
+
 settings_file = "StataEditor.sublime-settings"
+
+# def is_running(process):
+# 	""" Check if process is running """
+# 	wmi = win32com.client.GetObject('winmgmts:')
+# 	for p in wmi.InstancesOf('win32_process'): 
+# 		if re.search(process, p.Name):
+# 			return True
+# 	return False
+
+def temp_file_exists():
+	""" Check a given temp file exists """
+	file_name = 'emergency_close_stata_st.dta'
+	tmp_dta = os.path.join(tempfile.gettempdir(), file_name)
+	for file in os.listdir(tempfile.gettempdir()):
+		if file == file_name:
+			return True, tmp_dta
+	return False, tmp_dta
 
 def plugin_loaded():
     global settings
@@ -22,7 +40,7 @@ def StataAutomate(stata_command):
 
 	except:
 		win32api.WinExec(settings.get("stata_path"))
-		sublime.stata = win32com.client.Dispatch ("stata.StataOLEApp")
+		sublime.stata = win32com.client.Dispatch("stata.StataOLEApp")
 		sublime.stata.DoCommand("cd " + getDirectory())
 		sublime.stata.DoCommandAsync(stata_command)
 
@@ -80,6 +98,7 @@ class StataExecuteCommand(sublime_plugin.TextCommand):
 
 		this_file.write(all_text)
 		this_file.close()
+		nr_w_close = 0
 
 		StataAutomate(str(args["Mode"]) + " " + dofile_path)
 
@@ -144,3 +163,34 @@ class StataLoad(sublime_plugin.TextCommand):
 	def run(self,edit):
 		sel = self.view.substr(self.view.sel()[0])
 		StataAutomate("use " + sel + ", clear")
+
+class StataForceClose(sublime_plugin.EventListener):
+	""" Force Stata to close when Sublime Text closes """
+	def on_close(self,view):
+		# Check if there exists an open Sublime Text window
+		if len(sublime.windows()) == 0:
+			# Check if an active Stata session has been launched from Sublime Text
+			try:
+				print(sublime.stata)
+				# If there is no emergency backup, prompt message and save backup, then delete the Stata session.
+				if temp_file_exists()[0] == False:
+					sublime.message_dialog("Stata is about to close. Restart\nSublime Text to restore the session.")
+					sublime.stata.DoCommand("save " + temp_file_exists()[1] + ", replace")
+					del sublime.stata
+			except:
+				pass
+
+class StataRestore(sublime_plugin.EventListener):
+	def on_text_command(self, view, name, args):
+		# Check if an emergency backup file exists
+		if temp_file_exists()[0] == True:
+			rest = sublime.ok_cancel_dialog("Stata was forced to shut down as Sublime Text closed. Would you like to restore your previous session?")
+			tmp_dta = temp_file_exists()[1]
+			if rest == True:
+				win32api.WinExec(settings.get("stata_path"))
+				sublime.stata = win32com.client.Dispatch("stata.StataOLEApp")
+				sublime.stata.DoCommand("cd " + getDirectory())
+				sublime.stata.DoCommand('use ' + tmp_dta + ', clear')
+				os.remove(tmp_dta)
+			else:
+				os.remove(tmp_dta)
