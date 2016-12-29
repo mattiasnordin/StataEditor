@@ -3,8 +3,8 @@ Stata Editor for Sublime Text 3
 
 by [Mattias Nordin](http://sites.google.com/site/econnordin/)
 
-* Version 0.6.5
-* Date: March 2, 2016
+* Version 0.8.0
+* Date: December 29, 2016
 
 Features
 --------
@@ -16,7 +16,7 @@ This package provides the ability to write and run Stata code from Sublime Text 
 * Access Stata help files from ST3 by selecting the command for which you want access to the documentation and press F1 (open help file in ST3), or ctrl + F1 (open help file in Stata). For the former option, an internet connection is required.
 * Shorthand for creation of locals by pressing alt + L
 * Load a new Stata dataset by selecting a path and pressing alt + shift + U (Equivalent to the command "use 'path', clear"). Please, note that your current work will then be lost, so remember to save your dataset!
-* Some snippets and completions (edit the settings to add completions for functions and commands)
+* Some snippets and completions (edit the settings to add completions for functions, commands and files)
 * Plus all other features that come with ST3!
 
 Requirements and Setup

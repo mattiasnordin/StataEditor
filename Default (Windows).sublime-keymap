@@ -1,10 +1,40 @@
 [
-	{ "keys": ["ctrl+d"],	"command": "stata_execute",	"args": {"Mode": "do"},	"context":
+	{ "keys": ["ctrl+d"],	"command": "stata_execute",	"args": {"Mode": "do", "Selection": "default"},	"context":
 		[
 			{ "key": "selector", "operator": "equal", "operand": "source.stata" }
 		]
 	},
-	{ "keys": ["ctrl+r"], "command": "stata_execute", "args": {"Mode": "run"}, "context":
+	{ "keys": ["alt+d"],	"command": "stata_execute",	"args": {"Mode": "do", "Selection": "line"},	"context":
+		[
+			{ "key": "selector", "operator": "equal", "operand": "source.stata" }
+		]
+	},
+	{ "keys": ["ctrl+alt+d"],	"command": "stata_execute",	"args": {"Mode": "do", "Selection": "selection_only"},	"context":
+		[
+			{ "key": "selector", "operator": "equal", "operand": "source.stata" }
+		]
+	},
+	{ "keys": ["alt+shift+d"],	"command": "stata_execute",	"args": {"Mode": "do", "Selection": "rest_of_file"},	"context":
+		[
+			{ "key": "selector", "operator": "equal", "operand": "source.stata" }
+		]
+	},
+	{ "keys": ["ctrl+r"], "command": "stata_execute", "args": {"Mode": "run", "Selection": "default"}, "context":
+		[
+			{ "key": "selector", "operator": "equal", "operand": "source.stata" }
+		]
+	},
+	{ "keys": ["alt+r"],	"command": "stata_execute",	"args": {"Mode": "run", "Selection": "line"},	"context":
+		[
+			{ "key": "selector", "operator": "equal", "operand": "source.stata" }
+		]
+	},
+	{ "keys": ["ctrl+alt+r"],	"command": "stata_execute",	"args": {"Mode": "run", "Selection": "selection_only"},	"context":
+		[
+			{ "key": "selector", "operator": "equal", "operand": "source.stata" }
+		]
+	},
+	{ "keys": ["alt+shift+r"],	"command": "stata_execute",	"args": {"Mode": "run", "Selection": "rest_of_file"},	"context":
 		[
 			{ "key": "selector", "operator": "equal", "operand": "source.stata" }
 		]
@@ -45,17 +75,6 @@
 		[
 			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
 			{ "key": "selection_empty", "operator": "equal", "operand": false, "match_all": true },
-			{ "key": "selector", "operator": "equal", "operand": "source.stata", "match_all": true }
-		]
-	},
-	// Disable moving to right when in middle of ''
-	{ "keys": ["'"], "command": "insert_snippet", "args": {"contents": "'"}, "context":
-		[
-			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
-			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
-			{ "key": "following_text", "operator": "regex_contains", "operand": "^'", "match_all": true },
-			{ "key": "selector", "operator": "not_equal", "operand": "punctuation.definition.string.begin", "match_all": true },
-			{ "key": "eol_selector", "operator": "not_equal", "operand": "string.quoted.single", "match_all": true },
 			{ "key": "selector", "operator": "equal", "operand": "source.stata", "match_all": true }
 		]
 	},

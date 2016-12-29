@@ -8,7 +8,8 @@ import subprocess
 import re
 import urllib
 from urllib import request
-
+import time
+import os
 
 settings_file = "StataEditor.sublime-settings"
 
@@ -20,6 +21,29 @@ settings_file = "StataEditor.sublime-settings"
 # 			return True
 # 	return False
 
+def find_files(file_ext):
+	""" Create list of all files in project folders with given file extension """
+	project_folders = []
+	project_data = sublime.active_window().project_data()
+	for i in range(0,len(project_data['folders'])):
+		project_folders.append(project_data['folders'][i]['path'])
+	start_time = time.time()
+	for new_path in project_folders:
+		for root, dirs, files in os.walk(new_path):
+			for file in files:
+				if file.endswith(file_ext):
+					relDir = os.path.relpath(root, new_path)
+					relFile = os.path.join(relDir, file)
+					sublime.file_list.append(relFile)
+				diff_time = time.time() - start_time
+				# With huge folders, the loop can take a long time and freeze ST.
+				# This condition tries to limit this problem by
+				# breaking if the loop takes more than 1 second.
+				# However it can only break between folders, so one huge folder
+				# could still lead to memory leaks.
+				if diff_time > 1:
+					return
+
 def temp_file_exists():
 	""" Check a given temp file exists """
 	file_name = 'emergency_close_stata_st.dta'
@@ -30,8 +54,8 @@ def temp_file_exists():
 	return False, tmp_dta
 
 def plugin_loaded():
-    global settings
-    settings = sublime.load_settings(settings_file)
+	global settings
+	settings = sublime.load_settings(settings_file)
 
 def StataAutomate(stata_command):
 	""" Launch Stata (if needed) and send commands """
@@ -43,6 +67,10 @@ def StataAutomate(stata_command):
 		sublime.stata = win32com.client.Dispatch("stata.StataOLEApp")
 		sublime.stata.DoCommand("cd " + getDirectory())
 		sublime.stata.DoCommandAsync(stata_command)
+		if settings.get("file_completions") != False:
+			sublime.file_list = []
+			for file_ext in settings.get("file_completions").split(","):
+				find_files("." + file_ext.strip())
 
 def getDirectory():
 	var_dict = sublime.active_window().extract_variables()
@@ -66,28 +94,51 @@ def getDirectory():
 		set_dir = settings.get("default_path")
 		set_dir = "\"" + set_dir + "\""
 	return set_dir
+
+def SelectCode(self,selection):
+	all_text = ""
+	len_sels = 0
+	sels = self.view.sel()
+	len_sels = 0
+	for sel in sels:
+		len_sels = len_sels + len(sel)
+
+	if len_sels == 0 and selection == "default":
+		all_text = self.view.substr(self.view.find('(?s).*',0))
+
+	elif len_sels != 0 and selection == "default":
+		for sel in sels:
+			self.view.sel().add(self.view.line(sel.begin()))
+			self.view.sel().add(self.view.line(sel.end()))
+		
+		for sel in sels:
+			all_text = all_text + self.view.substr(sel) + "\n"
+
+	elif selection == "rest_of_file":
+		first_sel = sels[0]
+		self.view.sel().add(self.view.line(first_sel.begin()))
+		orig_sel_region = sublime.Region(first_sel.begin(),self.view.size())
+		self.view.sel().add(orig_sel_region)
+
+		for sel in sels:
+			all_text = all_text + self.view.substr(sel) + "\n"
+
+	elif selection == "line":
+		for sel in sels:
+			all_text = all_text + self.view.substr(self.view.line(sel)) + "\n"
+
+	elif selection == "selection_only":
+		for sel in sels:
+			all_text = all_text + self.view.substr(sel) + "\n"
+
+	if all_text[-1] != "\n":
+		all_text = all_text + "\n"
+
+	return all_text
 	
 class StataExecuteCommand(sublime_plugin.TextCommand):
 	def run(self, edit, **args):
-		all_text = ""
-		len_sels = 0
-		sels = self.view.sel()
-		len_sels = 0
-		for sel in sels:
-			len_sels = len_sels + len(sel)
-
-		if len_sels == 0:
-			all_text = self.view.substr(self.view.find('(?s).*',0))
-
-		else:
-			self.view.run_command("expand_selection", {"to": "line"})
-
-			for sel in sels:
-				all_text = all_text + self.view.substr(sel)
-
-		if all_text[-1] != "\n":
-			all_text = all_text + "\n"
-
+		all_text = SelectCode(self,args["Selection"])
 		dofile_path = os.path.join(tempfile.gettempdir(), 'st_stata_temp.tmp')
 
 		if settings.get("stata_version") <= 13:
@@ -101,11 +152,6 @@ class StataExecuteCommand(sublime_plugin.TextCommand):
 		nr_w_close = 0
 
 		StataAutomate(str(args["Mode"]) + " " + dofile_path)
-
-# class StataBuildCommand(sublime_plugin.WindowCommand):
-# 	def run(self, **kwargs):
-# 		act_win = sublime.active_window().active_view()
-# 		act_win.window().run_command("stata_execute", {"build":True, "Mode": kwargs["mode_opt"]})
 
 class StataHelpExternal(sublime_plugin.TextCommand):
 	def run(self,edit):
@@ -125,8 +171,6 @@ class StataHelpInternal(sublime_plugin.TextCommand):
 
 		help_adress = "http://www.stata.com/help.cgi?" + help_word
 		helpfile_path = os.path.join(tempfile.gettempdir(), 'st_stata_help.txt')
-
-		print(help_adress)
 
 		try:
 			a = urllib.request.urlopen(help_adress)

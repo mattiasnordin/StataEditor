@@ -1,17 +1,47 @@
 [
     {
-        "caption": "Stata: Do do-file",
+        "caption": "Stata: Run do-file, noisily",
         "command": "stata_execute",
-        "args": {"Mode": "do"}
+        "args": {"Mode": "do","Selection": "default"}
     },
     {
-    	"caption": "Stata: Run do-file",
-    	"command": "stata_execute",
-        "args": {"Mode": "run"}
+        "caption": "Stata: Run do-file, quietly",
+        "command": "stata_execute",
+        "args": {"Mode": "run", "Selection": "default"}
     },
     {
-    	"caption": "Stata: Insert locals",
-    	"command": "stata_local"
+        "caption": "Stata: Run line, noisily",
+        "command": "stata_execute",
+        "args": {"Mode": "do","Selection": "line"}
+    },
+    {
+        "caption": "Stata: Run line, quietly",
+        "command": "stata_execute",
+        "args": {"Mode": "run", "Selection": "line"}
+    },
+    {
+        "caption": "Stata: Run selection only, noisily",
+        "command": "stata_execute",
+        "args": {"Mode": "do","Selection": "selection_only"}
+    },
+    {
+        "caption": "Stata: Run selection only, quietly",
+        "command": "stata_execute",
+        "args": {"Mode": "run", "Selection": "selection_only"}
+    },
+    {
+        "caption": "Stata: Run rest of do-file, noisily",
+        "command": "stata_execute",
+        "args": {"Mode": "do","Selection": "rest_of_file"}
+    },
+    {
+        "caption": "Stata: Run rest of do-file, quietly",
+        "command": "stata_execute",
+        "args": {"Mode": "run", "Selection": "rest_of_file"}
+    },
+    {
+        "caption": "Stata: Insert locals",
+        "command": "stata_local"
     },
     {
         "caption": "Stata: Help (external)",
