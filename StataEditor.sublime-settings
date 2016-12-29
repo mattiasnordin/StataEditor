@@ -43,5 +43,14 @@
 	project is located. Finally, it is possible to set a custom path (using forward slashes
 	instead of backslashes). */
 
-	"default_path": "current_path"
+	"default_path": "current_path",
+
+	/* This setting is experimental. It allows for completions of files with given file extensions
+	in the project folder(s). The file completion will be relative to the project path.
+	Note that with folders containing huge amount of files, this can lead to memory leaks.
+	If so, simply change the setting to "false". To enable file completions, enter the
+	file extensions you wish to be enabled separated by commas. Example:
+	"file_completions": "dta, do, ado" */
+
+	"file_completions": false
 }

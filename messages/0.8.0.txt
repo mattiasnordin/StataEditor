@@ -1,0 +1,5 @@
+Changes in version 0.8.0:
+
+	*Added additional ways to send code to Stata. The shortcuts for these additionss are alt+d (run current line), ctrl+alt+d (run selection, do not expand to line) and alt+shift+d (run from current line to end of file). Replacing "d" with "r" gives the corresponding quiet way to send code (i.e., "run" instead of "do").
+	*Added experimental feature for completions of files in the project folder, see Preferences -> Package Settings -> StataEditor -> Settings - Default for details. Feedback on this feature is very much appreciated!
+	*Some bugfixes
