@@ -3,8 +3,8 @@ Stata Editor for Sublime Text 3
 
 by [Mattias Nordin](http://sites.google.com/site/econnordin/)
 
-* Version 0.7.0
-* Date: June 20, 2016
+* Version 0.6.5
+* Date: March 2, 2016
 
 Features
 --------
@@ -34,6 +34,10 @@ To install the package follow the steps outlined below. You can install StataEdi
 4. If the path to your Stata installation is "C:/Program Files (x86)/Stata13/StataMP-64.exe" you can skip this step. If not, select Preferences -> Package Settings -> StataEditor -> Settings - Default. Copy the content and then go to Preferences -> Package Settings -> StataEditor -> Settings - User and paste your copied text in the new file. Then change the path to where your Stata installation is located (note that you need to use forward slash, "/", instead of backward slash, "\") and save the file. In addition, if you do not use Stata 13, change the Stata version number. Do not change the content of the Settings - Default file. While this will work temporarily, with the next update your changes will disappear. The content of the Settings - User file will not be overwritten when the package is updated.
 
 5. Finally, to use Stata interactively from ST3, you also need to register the Stata Automation type library. Instructions can be found [here](http://www.stata.com/automation/#createmsapp). Note that I have had to use the Windows Vista instructions for both Windows 7 and Windows 8 to get Stata Automation to work. Once the Stata Automation type library has been registered, you are good to go!
+
+Known issues
+------------
+The development of this package is still in beta and may contain bugs, so use at your own risk and make sure you backup your data. When running code from ST3, a new instance of Stata is opened. If you close ST3, then that instance will also close, though it may take around five minutes before that happens. Note that Stata will not ask you whether you want to save the data but will close without warning. **Therefore, do not use an instance of Stata that has been launched from ST3 after ST3 has been closed, as you would risk loosing your unsaved work.** This is true even if you re-launch ST3 as the connection to the old instance of Stata will have been permanently broken. Please let me know if you detect any other bugs or if you have requests for additional featuers. You can contact me at mattias.nordin [at] nek [dot] uu [dot] se.
 
 Encoding
 --------
