@@ -1,0 +1,3 @@
+Changes in version 0.7.0:
+
+	*The plugin now forces Stata to close if Sublime Text closes. When Sublime Text is restarted there is an option to recover the Stata session.
