@@ -24,6 +24,7 @@
 			<string>\*/</string>
 			<key>name</key>
 			<string>comment.block.stata</string>
+			<key>patterns</key>
 			<array>
 				<dict>
 					<key>begin</key>
