@@ -24,6 +24,17 @@
 			<string>\*/</string>
 			<key>name</key>
 			<string>comment.block.stata</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>begin</key>
+					<string>/\*</string>
+					<key>end</key>
+					<string>\*/</string>
+					<key>name</key>
+					<string>comment.block.stata</string>
+				</dict>
+			</array>
 		</dict>
 		<dict>
 			<key>begin</key>
