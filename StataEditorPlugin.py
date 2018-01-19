@@ -151,7 +151,7 @@ class StataExecuteCommand(sublime_plugin.TextCommand):
 		this_file.close()
 		nr_w_close = 0
 
-		StataAutomate(str(args["Mode"]) + " " + dofile_path)
+		StataAutomate(str(args["Mode"]) + ' "' + dofile_path +'"')
 
 class StataHelpExternal(sublime_plugin.TextCommand):
 	def run(self,edit):

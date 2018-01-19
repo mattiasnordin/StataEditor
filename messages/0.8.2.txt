@@ -1,0 +1,3 @@
+Changes in version 0.8.2:
+
+	*Add quotation marks to the path to the temporary do-file sent to Stata from Sublime Text, which allows for spaces in the path
