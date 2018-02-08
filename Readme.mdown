@@ -3,8 +3,8 @@ Stata Editor for Sublime Text 3
 
 by [Mattias Nordin](http://sites.google.com/site/econnordin/)
 
-* Version 0.8.2
-* Date: January 19, 2018
+* Version 0.9.0
+* Date: February 8, 2018
 
 Features
 --------
@@ -37,7 +37,7 @@ To install the package follow the steps outlined below. You can install StataEdi
 
 Encoding
 --------
-Stata 14 has unicode support and uses utf-8 encoding just as ST3. Earlier versions of Stata do not have unicode support. Therefore, if you write Stata code containing non-ASCII characters in ST3, you may notice that these characters have been replaced with nonsense when you open the file in Stata's native do-file editor (versions 13 and earlier). This problem is easily avoided by saving your file with a different encoding in ST3: Simply open "File -> Save with encoding", and choose Western (Windows 1252) (or another appropriate encoding). If your Stata version uses a different encoding than Windows 1252 (again, only Stata 13 and earlier), it is possible to change encoding by going to the settings file (see step 4 under "Requirements and Setup" above) and change the character_encoding option. For a list of encodings to use, see the following [link](https://docs.python.org/3/library/codecs.html#standard-encodings)
+Stata 14 and Stata 15 have unicode support and uses utf-8 encoding just as ST3. Earlier versions of Stata do not have unicode support. Therefore, if you write Stata code containing non-ASCII characters in ST3, you may notice that these characters have been replaced with nonsense when you open the file in Stata's native do-file editor (versions 13 and earlier). This problem is easily avoided by saving your file with a different encoding in ST3: Simply open "File -> Save with encoding", and choose Western (Windows 1252) (or another appropriate encoding). If your Stata version uses a different encoding than Windows 1252 (again, only Stata 13 and earlier), it is possible to change encoding by going to the settings file (see step 4 under "Requirements and Setup" above) and change the character_encoding option. For a list of encodings to use, see the following [link](https://docs.python.org/3/library/codecs.html#standard-encodings)
 
 Acknowledgments
 ---------------
