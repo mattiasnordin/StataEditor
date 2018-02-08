@@ -1,0 +1,3 @@
+Changes in version 0.9.0:
+
+	*Added support for Stata 15
