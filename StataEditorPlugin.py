@@ -63,7 +63,7 @@ def StataAutomate(stata_command):
 		sublime.stata.DoCommandAsync(stata_command)
 
 	except:
-		# win32api.WinExec(settings.get("stata_path"))
+		win32api.WinExec(settings.get("stata_path"))
 		sublime.stata = win32com.client.Dispatch("stata.StataOLEApp")
 		sublime.stata.DoCommand("cd " + getDirectory())
 		sublime.stata.DoCommandAsync(stata_command)
@@ -231,7 +231,7 @@ class StataRestore(sublime_plugin.EventListener):
 			rest = sublime.ok_cancel_dialog("Stata was forced to shut down as Sublime Text closed. Would you like to restore your previous session?")
 			tmp_dta = temp_file_exists()[1]
 			if rest == True:
-				# win32api.WinExec(settings.get("stata_path"))
+				win32api.WinExec(settings.get("stata_path"))
 				sublime.stata = win32com.client.Dispatch("stata.StataOLEApp")
 				sublime.stata.DoCommand("cd " + getDirectory())
 				sublime.stata.DoCommand('use ' + tmp_dta + ', clear')
