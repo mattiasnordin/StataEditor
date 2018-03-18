@@ -63,7 +63,11 @@ def StataAutomate(stata_command):
 		sublime.stata.DoCommandAsync(stata_command)
 
 	except:
-		win32api.WinExec(settings.get("stata_path"))
+		win32api.WinExec(settings.get("stata_path")) 
+		if settings.get("stata_version") >= 15:
+			# Extra time is needed for the Dispatch command to hook up to
+			# the already launched Stata. Change "waiting_time" setting as needed.
+			time.sleep(settings.get("waiting_time"))
 		sublime.stata = win32com.client.Dispatch("stata.StataOLEApp")
 		sublime.stata.DoCommand("cd " + getDirectory())
 		sublime.stata.DoCommandAsync(stata_command)

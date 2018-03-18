@@ -1,0 +1,7 @@
+Changes in version 0.10.1:
+
+	*Fixed a bug that caused Stata 15 to launch twice (thanks to Chris Vecchio
+	for suggesting the solution!). There is now a 0.5 second delay before 
+	commands are being sent to Stata after Stata is launched. The timing of the
+	delay can be changed in the user settings file. Setting is only applicable
+	for Stata 15 and later.

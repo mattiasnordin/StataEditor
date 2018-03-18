@@ -3,8 +3,8 @@ Stata Editor for Sublime Text 3
 
 by [Mattias Nordin](http://sites.google.com/site/econnordin/)
 
-* Version 0.10.0
-* Date: February 12, 2018
+* Version 0.10.1
+* Date: March 18, 2018
 
 Features
 --------
@@ -21,7 +21,7 @@ This package provides the ability to write and run Stata code from Sublime Text 
 
 Requirements and Setup
 ----------------------
-This package only works on Windows machines. To use Stata with Sublime Text on OS X, try [Stata Enhanced](https://sublime.wbond.net/packages/Stata%20Enhanced). StataEditor has been tested on Sublime Text 3 together with Stata 13 and Stata 14 on Windows 7, Windows 8 and Windows 10. I have very briefly tested it on Stata 11 and Stata 12 and it seems to be working.
+This package only works on Windows machines. To use Stata with Sublime Text on OS X, try [Stata Enhanced](https://sublime.wbond.net/packages/Stata%20Enhanced). StataEditor has been tested on Sublime Text 3 together with Stata 13-15 on Windows 7, Windows 8 and Windows 10. I have very briefly tested it with Stata 11 and Stata 12 and it seems to be working.
 
 To install the package follow the steps outlined below. You can install StataEditor without Package Control, but in that case you probably already know what to do.
 
