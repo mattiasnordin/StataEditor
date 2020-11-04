@@ -40,6 +40,16 @@
         "args": {"Mode": "run", "Selection": "rest_of_file"}
     },
     {
+        "caption": "Stata: Run above, noisily",
+        "command": "stata_execute",
+        "args": {"Mode": "do","Selection": "run_above"}
+    },
+    {
+        "caption": "Stata: Run above, quietly",
+        "command": "stata_execute",
+        "args": {"Mode": "run", "Selection": "run_above"}
+    },
+    {
         "caption": "Stata: Insert locals",
         "command": "stata_local"
     },

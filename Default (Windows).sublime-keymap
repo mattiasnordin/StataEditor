@@ -19,6 +19,11 @@
 			{ "key": "selector", "operator": "equal", "operand": "source.stata" }
 		]
 	},
+	{ "keys": ["ctrl+alt+a"],	"command": "stata_execute",	"args": {"Mode": "do", "Selection": "run_above"},	"context":
+		[
+			{ "key": "selector", "operator": "equal", "operand": "source.stata" }
+		]
+	},
 	{ "keys": ["ctrl+r"], "command": "stata_execute", "args": {"Mode": "run", "Selection": "default"}, "context":
 		[
 			{ "key": "selector", "operator": "equal", "operand": "source.stata" }
