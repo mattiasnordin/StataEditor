@@ -123,10 +123,17 @@ def SelectCode(self,selection):
 		self.view.sel().add(self.view.line(first_sel.begin()))
 		orig_sel_region = sublime.Region(first_sel.begin(),self.view.size())
 		self.view.sel().add(orig_sel_region)
-
 		for sel in sels:
 			all_text = all_text + self.view.substr(sel) + "\n"
 
+	elif selection == "run_above":
+		first_sel = sels[0]
+		self.view.sel().add(self.view.line(first_sel.begin()))
+		orig_sel_region = sublime.Region(0, first_sel.end())
+		self.view.sel().add(orig_sel_region)
+		for sel in sels:
+			all_text = all_text + self.view.substr(sel) + "\n"
+			
 	elif selection == "line":
 		for sel in sels:
 			all_text = all_text + self.view.substr(self.view.line(sel)) + "\n"
