@@ -1,0 +1,4 @@
+Changes in version 0.11.0:
+
+	*Added a command: "Run Above" (shortcut ctrl + alt + a)
+	*Added syntax highlighting for some user-written commands
