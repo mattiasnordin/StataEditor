@@ -12,8 +12,10 @@
 	<key>patterns</key>
 	<array>
 		<dict>
-			<key>match</key>
+			<key>begin</key>
 			<string>^\s*//.*|\s+//.*|^\s*\*.*</string>
+			<key>end</key>
+			<string>\n</string>
 			<key>name</key>
 			<string>comment.line.stata</string>
 		</dict>
